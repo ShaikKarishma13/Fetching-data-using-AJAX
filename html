@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Example</title>
+</head>
+<body>
+
+    <h2>Fetch Data Using AJAX</h2>
+
+    <button onclick="loadData()">Fetch Data</button>
+
+    <p id="output"></p>
+
+    <script>
+        function loadData() {
+            // Create XMLHttpRequest object
+            let xhr = new XMLHttpRequest();
+
+            // Open GET request to data.txt (asynchronous)
+            xhr.open("GET", "data.txt", true);
+
+            // When request completes
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById("output").innerHTML = xhr.responseText;
+                } else {
+                    document.getElementById("output").innerHTML = "Error loading data";
+                }
+            };
+
+            // Send the request
+            xhr.send();
+        }
+    </script>
+
+</body>
+</html>
